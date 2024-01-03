@@ -1,0 +1,35 @@
+/* General */
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(238, 231, 220);
+}
+
+body header {
+  background-color: rgba(255, 255, 255, 0.329);
+}
+body header nav div h1 {
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+}
+body header nav div div {
+  display: flex;
+  justify-content: space-between;
+}
+body header nav div div section img {
+  width: 30px;
+}
+body header nav div div ul {
+  list-style: none;
+}
+body header nav div div ul a {
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=style.css.map */

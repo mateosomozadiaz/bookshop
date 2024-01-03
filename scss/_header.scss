@@ -1,0 +1,32 @@
+body {
+    header {
+        background-color: rgba(255, 255, 255, 0.329);
+        nav {
+            div {
+                h1 {
+                    font-size: 100%;
+                    margin: 0;
+                    padding: 0;
+                }
+                div {
+                    display: flex;
+                    justify-content: space-between;
+                    section {
+                        img {
+                            width: 30px;
+                        }
+                    }
+                    ul {
+                        list-style: none;
+                        a {
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+            
+            
+        }
+    }
+}
+
