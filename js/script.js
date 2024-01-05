@@ -1,8 +1,22 @@
 const books = [
-    {id: 1, title: "Harry Potter y la Piedra Filosofal", author: "J.K. Rowling", section: "Fantasía", genre: "Fantasía", price: 8000},
-    {id: 2, title: "Harry Potter y la Cámara Secreta", author: "J.K. Rowling", section: "Fantasía", genre: "Fantasía", price: 8000},
-    {id: 3, title: "Harry Potter y el Prisionero de Azkaban", author: "J.K. Rowling", section: "Fantasía", genre: "Fantasía", price: 8000},
-];
+    {id: 1, title: "Harry Potter y la Piedra Filosofal", author: "J.K. Rowling", category: "Fantasía", genre: "Fantasía", price: 8000},
+    {id: 2, title: "Harry Potter y la cámara secreta", author: "J.K. Rowling", category: "Fantasía", genre: "Fantasía", price: 8000},
+    {id: 3, title: "Harry Potter y el prisionero de Azkaban", author: "J.K. Rowling", category: "Fantasía", genre: "Fantasía", price: 8000},
+    {id: 4, title: "Harry Potter y el cáliz de fuego", author: "J.K. Rowling", category: "Fantasía", genre: "Fantasía", price: 8000},
+    {id: 5, title: "Harry Potter y la orden del Fénix", author: "J.K. Rowling", category: "Fantasía", genre: "Fantasía", price: 8000},
+    {id: 6, title: "Harry Potter y el misterio del príncipe", author: "J.K. Rowling", category: "Fantasía", genre: "Fantasía", price: 8000},
+    {id: 7, title: "Harry Potter y las reliquias de la muerte", author: "J.K. Rowling", category: "Fantasía", genre: "Fantasía", price: 8000},
+    {id: 8, title: "Percy Jackson y el ladrón del Rayo", author: "Rick Riordan", category: "Fantasía", genre: "Fantasía", price: 10000},
+    {id: 9, title: "Percy Jackson y el mar de los Monstruos", author: "Rick Riordan", category: "Fantasía", genre: "Fantasía", price: 10000},
+    {id: 10, title: "Percy Jackson y la maldición del Titán", author: "Rick Riordan", category: "Fantasía", genre: "Fantasía", price: 10000},
+    {id: 11, title: "Percy Jackson y la batalla del laberinto", author: "Rick Riordan", category: "Fantasía", genre: "Fantasía", price: 10000},
+    {id: 12, title: "Percy Jackson y el último Héroe del Olimpo", author: "Rick Riordan", category: "Fantasía", genre: "Fantasía", price: 10000},
+    {id: 13, title: "Percy Jackson y el Caliz de los Dioses", author: "Rick Riordan", category: "Fantasía", genre: "Fantasía", price: 10000},
+    {id: 13, title: "Los Juegos del Hambre", author: "Suzanne Collins", category: "Distopía", genre: "Ficción", price: 12500},
+    {id: 13, title: "En llamas", author: "Suzanne Collins", category: "Distopía", genre: "Ficción", price: 12500},
+    {id: 13, title: "Sinsajo", author: "Suzanne Collins", category: "Distopía", genre: "Ficción", price: 12500},
+    {id: 13, title: "Balada de los Pajaros Cantores", author: "Suzanne Collins", category: "Distopía", genre: "Ficción", price: 12500},
+]; /* Este array contiene objetos con claves que no se usan hasta ahora, pero que van a ser usadas en un futuro por una característica especial de la app. */
 
 const shoppingCart = [];
 
