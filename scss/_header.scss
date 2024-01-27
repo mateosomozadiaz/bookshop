@@ -1,6 +1,8 @@
 body {
     header {
-        background-color: rgba(255, 255, 255, 0.329);
+        position: sticky;
+        top: 0;
+        background-color: rgb(255, 255, 255);
         nav {
             div {
                 h1 {

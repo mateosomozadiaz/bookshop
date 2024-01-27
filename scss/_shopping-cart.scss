@@ -1,0 +1,19 @@
+#shopping-cart {
+    width: 45%;
+    height: 50%;
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.952);
+    top: 25%;
+    left: 22.5%;
+    overflow-y: scroll;
+    box-shadow: 0 0 100px white;
+    border: rgba(209, 209, 209, 0.418) solid 1px;
+}
+
+.shopping-cart-item {
+    padding: 1%;
+}
+
+.hide {
+    display: none;
+}

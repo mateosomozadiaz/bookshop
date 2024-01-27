@@ -1,4 +1,5 @@
 /* General */
+/* Variables */
 /* Reset */
 * {
   margin: 0;
@@ -11,7 +12,9 @@ body {
 }
 
 body header {
-  background-color: rgba(255, 255, 255, 0.329);
+  position: sticky;
+  top: 0;
+  background-color: rgb(255, 255, 255);
 }
 body header nav div h1 {
   font-size: 100%;
@@ -35,4 +38,84 @@ body main img {
   width: 100%;
 }
 
-/*# sourceMappingURL=style.css.map */
+#stock {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+#stock article {
+  margin: 5%;
+}
+#stock article img {
+  box-shadow: 0 0 20px rgba(172, 172, 172, 0.425);
+  transition: 0.3s;
+  width: 50%;
+  display: block;
+  margin: auto;
+  padding: 3%;
+  border: 4px solid rgb(194, 234, 242);
+}
+#stock article img:hover {
+  border: 8px solid rgb(194, 234, 242);
+}
+#stock article p, #stock article h6 {
+  margin: auto;
+  margin-top: 1%;
+  display: block;
+  width: 80%;
+  text-align: center;
+}
+#stock article .book-price {
+  font-size: 95%;
+}
+
+.divider {
+  background-color: rgb(194, 234, 242);
+  margin: 2%;
+  padding: 1%;
+  font-size: 110%;
+}
+
+.item-screen {
+  width: 70%;
+  height: 75%;
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.952);
+  top: 15%;
+  left: 15%;
+  box-shadow: 0 0 100px white;
+  border: rgba(209, 209, 209, 0.418) solid 1px;
+}
+
+#shopping-cart {
+  width: 45%;
+  height: 50%;
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.952);
+  top: 25%;
+  left: 22.5%;
+  overflow-y: scroll;
+  box-shadow: 0 0 100px white;
+  border: rgba(209, 209, 209, 0.418) solid 1px;
+}
+
+.shopping-cart-item {
+  padding: 1%;
+}
+
+.hide {
+  display: none;
+}
+
+footer {
+  background-color: rgb(194, 234, 242);
+  padding: 2%;
+}
+footer p {
+  margin: 0;
+  text-align: center;
+}
+footer p span {
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=Style.css.map */
