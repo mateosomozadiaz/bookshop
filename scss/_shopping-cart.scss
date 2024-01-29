@@ -1,19 +1,51 @@
 #shopping-cart {
-    width: 45%;
-    height: 50%;
+    width: 35%;
+    height:  100%;
     position: fixed;
-    background-color: rgba(255, 255, 255, 0.952);
-    top: 25%;
-    left: 22.5%;
-    overflow-y: scroll;
-    box-shadow: 0 0 100px white;
-    border: rgba(209, 209, 209, 0.418) solid 1px;
+    background-color: rgb(255, 255, 255);
+    right: 0;
+    overflow: scroll;
+    box-shadow: 0 0 20px rgba(172, 172, 172, 0.425);
+    z-index: 1;
+    article {
+        margin: 1% 5%;
+        hr {
+            margin: 3%;
+        }
+        p {
+            text-align: center;
+        }
+    }
+    .cross {
+        width: 30px;
+        margin-top: 3%;
+        margin-left: 3%;
+        margin-bottom: 0;
+        transition: 0.05s;
+        &:hover {
+            background-color: rgba(209, 209, 209, 0.281);
+            padding: 1%;
+            border-radius: 5%;
+        }
+    }
+    .trash-can {
+        width: 30px;
+        margin-top: 3%;
+        margin-bottom: 0;
+        transition: 0.05s;
+        padding: 0.5%;
+        &:hover {
+            background-color: rgba(209, 209, 209, 0.281);
+            padding: 1%;
+            border-radius: 5%;
+        }
+    }
+    h2 {
+        text-align: center;
+        font-size: 150%;
+    }
 }
 
 .shopping-cart-item {
     padding: 1%;
-}
-
-.hide {
-    display: none;
 }

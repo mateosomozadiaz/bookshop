@@ -9,8 +9,19 @@ $lightblue: rgb(194,234,242);
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scrollbar-width: none;
 }
 
 body {
     background-color: rgb(255, 255, 255);
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* JS Classes */
+
+.hide {
+    display: none;
 }
