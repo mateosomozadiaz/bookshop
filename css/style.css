@@ -21,6 +21,10 @@ body {
   display: none;
 }
 
+.noScroll {
+  overflow: hidden;
+}
+
 body header {
   position: sticky;
   top: 0;
@@ -38,12 +42,12 @@ body header nav div div {
 }
 body header nav div div section img {
   width: 30px;
-  transition: 0.05s;
+  transition: 0.1s;
 }
 body header nav div div section img:hover {
   background-color: rgba(209, 209, 209, 0.281);
-  padding: 3%;
-  border-radius: 5%;
+  padding: 3px;
+  border-radius: 5px;
 }
 body header nav div div ul {
   list-style: none;
@@ -57,12 +61,13 @@ body main img {
 
 #stock {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 #stock article {
   margin: 5%;
 }
 #stock article img {
+  border-radius: 8px;
   box-shadow: 0 0 20px rgba(172, 172, 172, 0.425);
   transition: 0.1s;
   width: 50%;
@@ -91,6 +96,7 @@ body main img {
   display: block;
   margin: 2% auto;
   border: 4px solid rgb(194, 234, 242);
+  border-radius: 8px;
 }
 #stock article button:active {
   background-color: transparent;
@@ -99,6 +105,7 @@ body main img {
 
 .divider {
   background-color: rgb(194, 234, 242);
+  border-radius: 6px;
   margin: 2%;
   padding: 1%;
   font-size: 110%;
@@ -115,56 +122,138 @@ body main img {
   border: rgba(209, 209, 209, 0.418) solid 1px;
 }
 
-#shopping-cart {
-  width: 35%;
-  height: 100%;
+@media screen and (max-width: 1100px) {
+  #stock {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+@media screen and (max-width: 900px) {
+  #stock {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media screen and (max-width: 600px) {
+  #stock {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (max-width: 300px) {
+  #stock {
+    grid-template-columns: 1fr;
+  }
+}
+.side-bar {
+  width: 42%;
+  height: 100vh;
   position: fixed;
   background-color: rgb(255, 255, 255);
   right: 0;
-  overflow: scroll;
   box-shadow: 0 0 20px rgba(172, 172, 172, 0.425);
   z-index: 1;
 }
-#shopping-cart article {
+.side-bar section {
+  overflow: scroll;
+  margin-bottom: 10px;
+  height: 75%;
+  width: 100%;
+  padding: 1%;
+}
+.side-bar section article {
+  padding: 1%;
   margin: 1% 5%;
+  box-shadow: 0 0 10px rgb(223, 223, 223);
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: 7fr 1fr;
 }
-#shopping-cart article hr {
-  margin: 3%;
-}
-#shopping-cart article p {
+.side-bar section article p {
   text-align: center;
+  margin: 0;
 }
-#shopping-cart .cross {
+.side-bar section article img {
+  display: inline;
+  width: 30px;
+  transition: 0.1s;
+  padding: 0.5%;
+}
+.side-bar section article img:hover {
+  background-color: rgba(209, 209, 209, 0.281);
+  padding: 5%;
+  border-radius: 5px;
+}
+.side-bar form {
+  margin-bottom: 50px;
+  width: 75%;
+  display: block;
+  margin: auto;
+  padding: 1%;
+}
+.side-bar form label {
+  margin-bottom: 3%;
+  display: block;
+  color: rgb(71, 71, 71);
+}
+.side-bar form label input, .side-bar form label select {
+  padding-left: 3px;
+  display: block;
+  width: 100%;
+  font-size: 110%;
+  border-radius: 4px;
+  border: none;
+  background-color: rgba(226, 226, 226, 0.349);
+  border-bottom: solid 3px rgb(194, 234, 242);
+  outline: none;
+  color: rgb(71, 71, 71);
+}
+.side-bar .cross {
   width: 30px;
   margin-top: 3%;
   margin-left: 3%;
   margin-bottom: 0;
-  transition: 0.05s;
+  transition: 0.1s;
 }
-#shopping-cart .cross:hover {
+.side-bar .cross:hover {
   background-color: rgba(209, 209, 209, 0.281);
   padding: 1%;
-  border-radius: 5%;
+  border-radius: 5px;
 }
-#shopping-cart .trash-can {
+.side-bar .trash-can {
   width: 30px;
   margin-top: 3%;
   margin-bottom: 0;
-  transition: 0.05s;
+  transition: 0.1s;
   padding: 0.5%;
 }
-#shopping-cart .trash-can:hover {
+.side-bar .trash-can:hover {
   background-color: rgba(209, 209, 209, 0.281);
   padding: 1%;
-  border-radius: 5%;
+  border-radius: 5px;
 }
-#shopping-cart h2 {
+.side-bar h2 {
   text-align: center;
   font-size: 150%;
+  margin-bottom: 3%;
+}
+.side-bar button {
+  text-align: center;
+  display: block;
+  margin: auto;
+  background-color: rgb(194, 234, 242);
+  border: none;
+  border-radius: 5px;
+  font-size: 110%;
+  padding: 0.5% 5%;
 }
 
 .shopping-cart-item {
   padding: 1%;
+}
+
+#overlay {
+  background-color: rgba(144, 189, 199, 0.295);
+  position: fixed;
+  height: 100vh;
+  width: 100%;
 }
 
 footer {
@@ -180,4 +269,4 @@ footer p span {
   font-weight: bold;
 }
 
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=Style.css.map */

@@ -1,9 +1,10 @@
 #stock {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     article {
         margin: 5%;
         img {
+            border-radius: 8px;
             box-shadow: 0 0 20px rgba(172, 172, 172, 0.425);
             transition: 0.1s;
             width: 50%;
@@ -32,6 +33,7 @@
             display: block;
             margin: 2% auto;
             border: 4px solid $lightblue;
+            border-radius: 8px;
             &:active {
                 background-color: transparent;
                 border-color: transparent;
@@ -42,6 +44,7 @@
 
 .divider {
     background-color: $lightblue;
+    border-radius: 6px;
     margin: 2%;
     padding: 1%;
     font-size: 110%;
@@ -56,4 +59,28 @@
     left: 15%;
     box-shadow: 0 0 100px white;
     border: rgba(209, 209, 209, 0.418) solid 1px;
+}
+
+@media screen and (max-width: 1100px){
+    #stock {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 900px){
+    #stock {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 600px){
+    #stock {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 300px){
+    #stock {
+        grid-template-columns: 1fr;
+    }
 }

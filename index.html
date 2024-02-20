@@ -2,61 +2,93 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" user-scalable="no" content="width=device-width, initial-scale=1.0" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-    <title>Bookshop</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="shortcut icon" href="img/favicon.png" type="image/png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" user-scalable="no" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="assets/favicon.png" type="image/png">
+
+  <!-- Title -->
+  <title>Bookshop</title>
+
+  <!-- My Stylesheets / Scripts -->
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/script.js" defer></script>
+  
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous" defer></script>
+
+  <!-- Toastify -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js" defer></script>
+
+  <!-- Sweetalert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+
 </head>
 
 <body>
-  
-  <section class="hide" id="shopping-cart">
-    <img id="shopping-cart-cross" class="cross" src="img/cross.png" alt="X">
-    <img id="shopping-cart-trash-can" class="trash-can" src="img/trash-can.png" alt="X">
+  <section class="hide side-bar" id="shopping-cart">
+    <img id="shopping-cart-cross" class="cross" src="assets/cross.png" alt="close">
+    <img id="shopping-cart-trash-can" class="trash-can" src="assets/trash-can.png" alt="empty shopping cart">
     <h2>Carrito de Compras</h2>
     <section id="shopping-cart-list"></section>
+    <button id="buy-button">Comprar</button>
   </section>
 
-    <header>
-        <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#"><h1>Bookshop</h1></a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link active" href="#">Inicio</a>
-                  </li>
-                </ul>
-                <section>
-                <img id="shopping-cart-button" src="img/shopping-cart.png" alt="shopping cart">
-                <img id="account-button" src="img/user.png" alt="account">
-              </section>
-              </div>
-            </div>
-          </nav>
-    </header>
-    <main>
-      <img src="img/header.jpg" alt="header image">
+  <section class="hide side-bar" id="buy-section">
+    <img id="back-button" class="cross" src="assets/back.png" alt="go back">
+    <h2>Finalizar la Compra</h2>
+    <form id="form" autocomplete="off">
+      <label for="name">Nombre<input type="text" id="name" value="Harry" required></label>
+      <label for="surname">Apellido<input type="text" id="surname" value="Potter" required></label>
+      <label for="email">Email<input type="email" id="email" value="harrypotter@hogwarts.com" required></label>
+      <label for="tel">Tel<input type="tel" id="tel" value="123456789" required></label>
+      <label for="method">Método de pago<select id="method">
+        <option>Transferencia Bancaria</option>
+        <option>Tarjeta de Crédito</option>
+        <option>Mercado Pago</option>
+      </select></label>
+      
+    <button id="finish-buying">Finalizar Compra</button>
+    </form>
+  </section>
 
-      <h2 class="divider">Libros</h2>
+  <header>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <h1>Bookshop</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Inicio</a>
+            </li>
+          </ul>
+          <section>
+            <img id="shopping-cart-button" src="assets/shopping-cart.png" alt="shopping cart">
+          </section>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <img src="assets/header.jpg" alt="header image">
 
-      <section id="stock"></section>
+    <h2 class="divider">Libros</h2>
 
-    </main>
-    <footer>
-      <p>Desarrollado por <span>Mateo Somoza Diaz</span></p>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
+    <section id="stock"></section>
 
-    <script src="js/script.js"></script>
+  </main>
+  <footer>
+    <p>Desarrollado por <span>Mateo Somoza Diaz</span></p>
+  </footer>
 </body>
 
 </html>

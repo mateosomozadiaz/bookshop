@@ -1,0 +1,138 @@
+[
+    {
+        "title": "Harry Potter y la Piedra Filosofal",
+        "author": "J.K. Rowling",
+        "category": "Fantasía",
+        "genre": "Fantasía",
+        "price": 8000,
+        "id": 0
+    },
+    {
+        "title": "Harry Potter y la cámara secreta",
+        "author": "J.K. Rowling",
+        "category": "Fantasía",
+        "genre": "Fantasía",
+        "price": 8000,
+        "id": 1
+    },
+    {
+        "title": "Harry Potter y el prisionero de Azkaban",
+        "author": "J.K. Rowling",
+        "category": "Fantasía",
+        "genre": "Fantasía",
+        "price": 8000,
+        "id": 2
+    },
+    {
+        "title": "Harry Potter y el cáliz de fuego",
+        "author": "J.K. Rowling",
+        "category": "Fantasía",
+        "genre": "Fantasía",
+        "price": 8000,
+        "id": 3
+    },
+    {
+        "title": "Harry Potter y la orden del Fénix",
+        "author": "J.K. Rowling",
+        "category": "Fantasía",
+        "genre": "Fantasía",
+        "price": 8000,
+        "id": 4
+    },
+    {
+        "title": "Harry Potter y el misterio del príncipe",
+        "author": "J.K. Rowling",
+        "category": "Fantasía",
+        "genre": "Fantasía",
+        "price": 8000,
+        "id": 5
+    },
+    {
+        "title": "Harry Potter y las reliquias de la muerte",
+        "author": "J.K. Rowling",
+        "category": "Fantasía",
+        "genre": "Fantasía",
+        "price": 8000,
+        "id": 6
+    },
+    {
+        "title": "Percy Jackson y el ladrón del Rayo",
+        "author": "Rick Riordan",
+        "category": "Fantasía",
+        "genre": "Fantasía",
+        "price": 10000,
+        "id": 7
+    },
+    {
+        "title": "Percy Jackson y el mar de los Monstruos",
+        "author": "Rick Riordan",
+        "category": "Fantasía",
+        "genre": "Fantasía",
+        "price": 10000,
+        "id": 8
+    },
+    {
+        "title": "Percy Jackson y la maldición del Titán",
+        "author": "Rick Riordan",
+        "category": "Fantasía",
+        "genre": "Fantasía",
+        "price": 10000,
+        "id": 9
+    },
+    {
+        "title": "Percy Jackson y la batalla del laberinto",
+        "author": "Rick Riordan",
+        "category": "Fantasía",
+        "genre": "Fantasía",
+        "price": 10000,
+        "id": 10
+    },
+    {
+        "title": "Percy Jackson y el último Héroe del Olimpo",
+        "author": "Rick Riordan",
+        "category": "Fantasía",
+        "genre": "Fantasía",
+        "price": 10000,
+        "id": 11
+    },
+    {
+        "title": "Percy Jackson y el Caliz de los Dioses",
+        "author": "Rick Riordan",
+        "category": "Fantasía",
+        "genre": "Fantasía",
+        "price": 10000,
+        "id": 12
+    },
+    {
+        "title": "Los Juegos del Hambre",
+        "author": "Suzanne Collins",
+        "category": "Distopía",
+        "genre": "Ficción",
+        "price": 12500,
+        "id": 13
+    },
+    {
+        "title": "En llamas",
+        "author": "Suzanne Collins",
+        "category": "Distopía",
+        "genre": "Ficción",
+        "price": 12500,
+        "id": 14
+    },
+    {
+        "title": "Sinsajo",
+        "author": "Suzanne Collins",
+        "category": "Distopía",
+        "genre": "Ficción",
+        "price": 12500,
+        "id": 15
+    },
+    {
+        "title": "Balada de los Pajaros Cantores",
+        "author": "Suzanne Collins",
+        "category": "Distopía",
+        "genre": "Ficción",
+        "price": 12500,
+        "id": 16
+    }
+]

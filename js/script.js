@@ -1,28 +1,44 @@
-const books = [
-    { title: "Harry Potter y la Piedra Filosofal", author: "J.K. Rowling", category: "Fantasía", genre: "Fantasía", price: 8000 },
-    { title: "Harry Potter y la cámara secreta", author: "J.K. Rowling", category: "Fantasía", genre: "Fantasía", price: 8000 },
-    { title: "Harry Potter y el prisionero de Azkaban", author: "J.K. Rowling", category: "Fantasía", genre: "Fantasía", price: 8000 },
-    { title: "Harry Potter y el cáliz de fuego", author: "J.K. Rowling", category: "Fantasía", genre: "Fantasía", price: 8000 },
-    { title: "Harry Potter y la orden del Fénix", author: "J.K. Rowling", category: "Fantasía", genre: "Fantasía", price: 8000 },
-    { title: "Harry Potter y el misterio del príncipe", author: "J.K. Rowling", category: "Fantasía", genre: "Fantasía", price: 8000 },
-    { title: "Harry Potter y las reliquias de la muerte", author: "J.K. Rowling", category: "Fantasía", genre: "Fantasía", price: 8000 },
-    { title: "Percy Jackson y el ladrón del Rayo", author: "Rick Riordan", category: "Fantasía", genre: "Fantasía", price: 10000 },
-    { title: "Percy Jackson y el mar de los Monstruos", author: "Rick Riordan", category: "Fantasía", genre: "Fantasía", price: 10000 },
-    { title: "Percy Jackson y la maldición del Titán", author: "Rick Riordan", category: "Fantasía", genre: "Fantasía", price: 10000 },
-    { title: "Percy Jackson y la batalla del laberinto", author: "Rick Riordan", category: "Fantasía", genre: "Fantasía", price: 10000 },
-    { title: "Percy Jackson y el último Héroe del Olimpo", author: "Rick Riordan", category: "Fantasía", genre: "Fantasía", price: 10000 },
-    { title: "Percy Jackson y el Caliz de los Dioses", author: "Rick Riordan", category: "Fantasía", genre: "Fantasía", price: 10000 },
-    { title: "Los Juegos del Hambre", author: "Suzanne Collins", category: "Distopía", genre: "Ficción", price: 12500 },
-    { title: "En llamas", author: "Suzanne Collins", category: "Distopía", genre: "Ficción", price: 12500 },
-    { title: "Sinsajo", author: "Suzanne Collins", category: "Distopía", genre: "Ficción", price: 12500 },
-    { title: "Balada de los Pajaros Cantores", author: "Suzanne Collins", category: "Distopía", genre: "Ficción", price: 12500 },
-]; /* Declara el array con los libros en stock */
+const books = [];
 
-books.forEach(book => {
-    book.id = books.indexOf(book);
-    createBookItem(book);
-});
-/* Asigna al ID de cada libro su valor de index */
+class stockItem {
+    constructor(id, title, author, category, genre, amount, price) {
+        this.id = id
+        this.title = title
+        this.author = author
+        this.category = category
+        this.genre = genre
+        this.amount = amount
+        this.price = price
+    }
+}
+
+async function getBooks() {
+    try {
+        await fetch("../json/stock.json")
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(book => {
+                books.push(
+                    new stockItem(
+                        book.id,
+                        book.title,
+                        book.author,
+                        book.category,
+                        book.genre,
+                        book.amount,
+                        book.price
+                    ))
+            });
+            books.forEach(book => {
+                createBookItem(book);
+            });
+        })
+    } catch (err) {
+        console.warn("Something went wrong: " + err);
+    }
+}
+
+getBooks();
 
 const shoppingCart = [];
 /* Declara el array del carrito de compras */
@@ -45,9 +61,17 @@ function saveShoppingCart() {
 function getShoppingCart() {
     let oldShoppingCart = JSON.parse(localStorage.getItem("shoppingCart"));
     if (oldShoppingCart) {
-        oldShoppingCart.forEach(item => {
-            shoppingCart.push(new shoppingCartItem(item.id, item.title, item.author, item.amount, item.price));
-        });
+        oldShoppingCart.forEach((item) => {
+            shoppingCart.push(
+                new shoppingCartItem(
+                    item.id,
+                    item.title,
+                    item.author,
+                    item.amount,
+                    item.price
+                )
+            )
+        })
     }
     updateShoppingCart();
 }
@@ -58,8 +82,8 @@ function createBookItem(book) {
     const bookItem = document.createElement("article");
 
     const img = document.createElement("img");
-    img.src = `img/books/${book.id}.png`;
-    img.alt = "book cover"
+    img.src = `assets/books/${book.id}.png`;
+    img.alt = "book cover";
 
     const button = document.createElement("button");
     button.textContent = "Agregar";
@@ -77,35 +101,52 @@ function createBookItem(book) {
     bookItem.append(title);
     bookItem.append(price);
 
-    img.addEventListener("click", function() {
-        console.log(`(${book.title}) -- Hiciste click en un libro. En un futuro, eso abrirá una ventana con detalles sobre él.`);
-    });
-
-    button.addEventListener("click", function() {
+    button.addEventListener("click", function () {
         addBookToCart(book);
-    });
+    })
 
     document.querySelector("#stock").append(bookItem);
 }
 /* Declara una función que crea un libro en la página principal */
 
 function addBookToCart(book) {
-    let inStock = books.some(stock => stock.id == book.id); /* Verifica si el libro está en la lista de stock */
-    let inCart = shoppingCart.some(item => item.id == book.id); /* Verifica si el libro ya fue agregado al carrito de compras */
+    let inStock = books.some((stock) => stock.id == book.id);
+    /* Verifica si el libro está en la lista de stock */
+    let inCart = shoppingCart.some((item) => item.id == book.id);
+    /* Verifica si el libro ya fue agregado al carrito de compras */
 
     if (inStock == true) {
-
         if (inCart == true) {
-
-            let foundItem = shoppingCart.find(item => item.id == book.id);
+            const foundItem = shoppingCart.find((item) => item.id == book.id);
             foundItem.amount++;
             foundItem.price = foundItem.price + book.price;
-
         } else {
-
-            shoppingCart.push(new shoppingCartItem(book.id, book.title, book.author, 1, book.price));
+            shoppingCart.push(
+                new shoppingCartItem(
+                    book.id,
+                    book.title,
+                    book.author,
+                    1,
+                    book.price
+                )
+            );
         }
+        Toastify({
 
+            text: "Agregaste " + book.title,
+            
+            duration: 2000,
+            
+            style: {
+                background: "linear-gradient(to right, #b1ebf0, #94c5f2)",
+            },
+            
+            onClick: () => {
+                toggleShoppingCart();
+                toggleOverlay();
+            }
+
+        }).showToast();
     } else {
         console.error("Invalid book argument");
     }
@@ -117,19 +158,23 @@ function updateShoppingCart() {
     const shoppingCartList = document.querySelector("#shopping-cart-list");
     shoppingCartList.innerHTML = "";
 
-    shoppingCart.forEach(item => {
-        const hr1 = document.createElement("hr");
+    shoppingCart.forEach((item) => {
 
         const container = document.createElement("article");
 
-        const element = document.createElement("p");
-        element.textContent = `${item.title} | ${item.author} | X${item.amount} | $${item.price}`;
+        const text = document.createElement("p");
+        text.textContent = `${item.title}  ${item.author}  X${item.amount}  $${item.price}`;
 
-        const hr2 = document.createElement("hr");
+        const button = document.createElement("img");
+        button.src = `assets/delete.png`;
+        button.addEventListener("click", () => {
+            shoppingCart.splice(shoppingCart.indexOf(item), 1);
+            saveShoppingCart()
+            updateShoppingCart();
+        })
 
-        container.append(hr1);
-        container.append(element);
-        container.append(hr2);
+        container.append(text);
+        container.append(button);
 
         shoppingCartList.append(container);
 
@@ -137,6 +182,19 @@ function updateShoppingCart() {
     })
 }
 /* Declara una función que actualiza la ventana que muestra el carrito de compras y guarda los datos en localStorage */
+
+function toggleOverlay() {
+    const results = document.querySelector("#overlay");
+    if (results == null) {
+        const overlay = document.createElement("div");
+        overlay.id = "overlay";
+        document.body.prepend(overlay);
+        document.body.classList.add("noScroll");
+    } else {
+        results.remove();
+        document.body.classList.remove("noScroll");
+    }
+}
 
 const shoppingCartWindow = document.querySelector("#shopping-cart");
 
@@ -146,18 +204,102 @@ const shoppingCartCross = document.querySelector("#shopping-cart-cross");
 function toggleShoppingCart() {
     shoppingCartWindow.classList.toggle("hide");
 }
-shoppingCartButton.addEventListener("click", toggleShoppingCart);
-shoppingCartCross.addEventListener("click", toggleShoppingCart);
-/* Muestra/Oculta el carrito de compras al presionar un botón u otro */
+
+shoppingCartButton.addEventListener("click", () => {
+    toggleShoppingCart();
+    toggleOverlay();
+});
+shoppingCartCross.addEventListener("click", () => {
+    toggleShoppingCart();
+    toggleOverlay();
+});
+
+
+const buySection = document.querySelector("#buy-section");
+
+const buyButton = document.querySelector("#buy-button");
+const backButton = document.querySelector("#back-button");
+
+function toggleBuySection() {
+    buySection.classList.toggle("hide");
+    toggleShoppingCart();
+}
+
+backButton.addEventListener("click", toggleBuySection);
 
 
 const shoppingCartTrashCan = document.querySelector("#shopping-cart-trash-can");
 function emptyShoppingCart() {
-    while (shoppingCart.length > 0) {
-        shoppingCart.pop();
-    }
-    saveShoppingCart();
-    updateShoppingCart();
+    Swal.fire({
+        title: "¿Seguro?",
+        text: "Se eliminará el contenido del carrito de compras",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonColor: "#85cced",
+        cancelButtonColor: "#ff8a8a",
+        confirmButtonText: "Aceptar",
+        cancelButtonText: "Cancelar"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({
+                title: "Carrito Vacío",
+                text: "Se ha vaciado el carrito de compras",
+                icon: "success",
+                confirmButtonColor: "#85cced"
+            })
+
+            while (shoppingCart.length > 0) {
+                shoppingCart.pop()
+            }
+            saveShoppingCart()
+            updateShoppingCart()
+        }
+    })
 }
 shoppingCartTrashCan.addEventListener("click", emptyShoppingCart);
 /* Vacía el carrito de compras al presionar un botón */
+
+function buy() {
+    if (shoppingCart.length > 0) {
+        const finalPrice = shoppingCart.reduce((count, current) => count + current.price, 0);
+        toggleBuySection();
+    } else {
+        Swal.fire({
+            title: "Carrito Vacío",
+            text: "Aún no has agregado elementos al carrito de compras",
+            icon: "error",
+            confirmButtonColor: "#85cced"
+        });
+    }
+}
+
+buyButton.addEventListener("click", buy);
+
+const form = document.querySelector("#form");
+
+function getData() {
+    const name = document.querySelector("#name");
+    return name.value;
+}
+
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    
+    const name = getData();
+
+    Swal.fire({
+        title: "¡Compra Exitosa!",
+        text: "La compra se ha completado con éxito, " + name + "",
+        icon: "success",
+        confirmButtonColor: "#85cced"
+    });
+
+    while (shoppingCart.length > 0) {
+        shoppingCart.pop()
+    }
+    saveShoppingCart();
+    updateShoppingCart();
+    toggleBuySection();
+    toggleShoppingCart();
+    toggleOverlay();
+})
