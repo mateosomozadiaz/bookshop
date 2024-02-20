@@ -14,7 +14,7 @@ class stockItem {
 
 async function getBooks() {
     try {
-        await fetch("../json/stock.json")
+        await fetch("https://mateosomozadiaz.github.io/bookshop/json/stock.json")
         .then(response => response.json())
         .then(data => {
             data.forEach(book => {
