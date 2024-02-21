@@ -265,6 +265,7 @@ shoppingCartTrashCan.addEventListener("click", emptyShoppingCart);
 function buy() {
     if (shoppingCart.length > 0) {
         const finalPrice = shoppingCart.reduce((count, current) => count + current.price, 0);
+        document.querySelector("#final-price").textContent = `Total: $${finalPrice}`;
         toggleBuySection();
     } else {
         Swal.fire({

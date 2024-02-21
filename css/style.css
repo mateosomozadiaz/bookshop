@@ -245,6 +245,11 @@ body main img {
 .side-bar h2 {
   text-align: center;
   font-size: 150%;
+  margin-bottom: 2%;
+}
+.side-bar h3 {
+  text-align: center;
+  font-size: 110%;
   margin-bottom: 3%;
 }
 .side-bar button {
