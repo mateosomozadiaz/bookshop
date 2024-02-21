@@ -13,6 +13,9 @@ class stockItem {
 }
 
 async function getBooks() {
+    while (books.length > 0) {
+        books.pop()
+    }
     try {
         await fetch("https://mateosomozadiaz.github.io/bookshop/json/stock.json")
         .then(response => response.json())
@@ -302,4 +305,37 @@ form.addEventListener("submit", (event) => {
     toggleBuySection();
     toggleShoppingCart();
     toggleOverlay();
-})
+});
+
+
+
+const search = document.querySelector("#search");
+
+search.addEventListener("input", (event) => {
+
+    event.preventDefault()
+
+    const searchVal = search.value;
+
+    if (searchVal == "") {
+        document.querySelector("#stock").innerHTML = "";
+        books.forEach(book => {
+            createBookItem(book);
+        });
+    } else {
+        document.querySelector("#stock").innerHTML = "";
+        
+        const results = books.filter((book) => {
+            const lowSearchVal = searchVal.toLowerCase();
+            const lowTitle = book.title.toLowerCase();
+
+            return lowTitle.includes(lowSearchVal);
+        });
+
+        console.table(results)
+
+        results.forEach(book => {
+            createBookItem(book);
+        });
+    }    
+});
